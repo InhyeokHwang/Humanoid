@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+
+  <!-- Virtual Link-->
+  <link name="base_link"/>
+
+  <!-- Links -->
+  <link name="BASE_1">
+    <visual name="BASE_1">
+      <origin xyz="0.860 -0.090 0.060" rpy="1.570796 0.000 -1.570796"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    
+    <collision name="BASE_1">
+      <origin xyz="0.860 -0.090 0.060" rpy="1.570796 0.000 -1.570796"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="BASE_2">
+    <visual name="BASE_2">
+      <origin xyz="0.000 0.000 0.000" rpy="0.000 0.000 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="BASE_2">
+      <origin xyz="0.000 0.000 0.000" rpy="0.000 0.000 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="BASE_JOINT_1">
+    <visual name="BASE_JOINT_1_visual">
+      <origin xyz="-0.768 -0.577 -0.020" rpy="-0.670849 1.570796 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_JOINT_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="BASE_JOINT_1_collision">
+      <origin xyz="-0.768 -0.577 -0.020" rpy="-0.670849 1.570796 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_JOINT_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="DOWNBODY">
+    <visual name="DOWNBODY_visual">
+      <origin xyz="-1.040 -0.050 -0.050" rpy="0.000 1.570796 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/DOWNBODY.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="DOWNBODY_collision">
+      <origin xyz="-1.040 -0.050 -0.050" rpy="0.000 1.570796 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/DOWNBODY.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="BASE_JOINT_2">
+    <visual name="BASE_JOINT_2_visual">
+      <origin xyz="-0.723 -0.807 0.010" rpy="-2.375375 -1.570796 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_JOINT_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="BASE_JOINT_2_collision">
+      <origin xyz="-0.723 -0.807 0.010" rpy="-2.375375 -1.570796 0.000"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/BASE_JOINT_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="UPBODY">
+    <visual name="UPBODY_visual">
+      <origin xyz="0.000 0.000 1.150" rpy="3.141593 0.000 3.141593"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/UPBODY.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <collision name="UPBODY_collision">
+      <origin xyz="0.000 0.000 1.150" rpy="3.141593 0.000 3.141593"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/torso/UPBODY.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- Joints -->
+  <joint name="base_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="BASE_2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="body_1" type="continuous">
+    <origin xyz="0.110 -0.050 -0.050" rpy="3.141593 1.570796 0.000"/>
+    <parent link="DOWNBODY"/>
+    <child link="UPBODY"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="BASE_body" type="continuous">
+    <origin xyz="-0.050 0.050 1.040" rpy="0.000 -1.570796 0.000"/>
+    <parent link="BASE_2"/>
+    <child link="DOWNBODY"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="BASE_joint_1" type="continuous">
+    <origin xyz="-0.021 -0.025 0.960" rpy="0.000 -1.570796 0.000"/>
+    <parent link="BASE_2"/>
+    <child link="BASE_JOINT_1"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="BASE_joint_2" type="revolute">
+    <origin xyz="0.075 -0.009 -0.010" rpy="0.000 0.000 -0.000"/>
+    <parent link="BASE_JOINT_1"/>
+    <child link="BASE_JOINT_2"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <mimic joint="BASE_joint_1" multiplier="1.0" offset="0.0"/>
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="5.0"/>
+  </joint>
+
+  <joint name="BASE_fixed" type="fixed">
+    <origin xyz="-0.090 -0.060 0.863" rpy="-1.570796 1.570796 0.000"/>
+    <parent link="BASE_2"/>
+    <child link="BASE_1"/>
+  </joint>
+</robot>

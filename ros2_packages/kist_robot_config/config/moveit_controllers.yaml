@@ -1,0 +1,69 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - left_arm_controller
+    - right_arm_controller
+    - head_controller
+    - torso_controller
+    - upper_body_controller
+
+  left_arm_controller:
+    type: FollowJointTrajectory
+    joints:
+      - UPBODY_leftarm_1
+      - UPBODY_leftarm_2
+      - UPBODY_leftarm_3
+      - UPBODY_leftarm_4
+      - UPBODY_leftarm_5
+    action_ns: follow_joint_trajectory
+    default: true
+
+  right_arm_controller:
+    type: FollowJointTrajectory
+    joints:
+      - UPBODY_rightarm_1
+      - UPBODY_rightarm_2
+      - UPBODY_rightarm_3
+      - UPBODY_rightarm_4
+      - UPBODY_rightarm_5
+    action_ns: follow_joint_trajectory
+    default: true
+
+  head_controller:
+    type: FollowJointTrajectory
+    joints:
+      - UPBODY_neck_1
+      - UPBODY_neck_2
+    action_ns: follow_joint_trajectory
+    default: true
+  
+  torso_controller:
+    type: FollowJointTrajectory
+    joints:
+      - BASE_body
+      - body_1
+    action_ns: follow_joint_trajectory
+    default: true
+
+  upper_body_controller:
+    type: FollowJointTrajectory
+    joints:
+      - BASE_body
+      - body_1
+      - UPBODY_leftarm_1
+      - UPBODY_leftarm_2
+      - UPBODY_leftarm_3
+      - UPBODY_leftarm_4
+      - UPBODY_leftarm_5
+      - UPBODY_neck_1
+      - UPBODY_neck_2
+      - UPBODY_rightarm_1
+      - UPBODY_rightarm_2
+      - UPBODY_rightarm_3
+      - UPBODY_rightarm_4
+      - UPBODY_rightarm_5
+    action_ns: follow_joint_trajectory
+    default: true

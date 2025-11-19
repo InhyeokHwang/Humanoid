@@ -1,0 +1,17 @@
+# Default initial positions for body's ros2_control fake system
+
+initial_positions:
+  BASE_body: 0
+  UPBODY_leftarm_1: 0
+  UPBODY_leftarm_2: 0
+  UPBODY_leftarm_3: 0
+  UPBODY_leftarm_4: 0
+  UPBODY_leftarm_5: 0
+  UPBODY_neck_1: 0
+  UPBODY_neck_2: 0
+  UPBODY_rightarm_1: 0
+  UPBODY_rightarm_2: 0
+  UPBODY_rightarm_3: 0
+  UPBODY_rightarm_4: 0
+  UPBODY_rightarm_5: 0
+  body_1: 0

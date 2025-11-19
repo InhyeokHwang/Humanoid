@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <link name="NECK_1">
+    <visual name="NECK_1_visual">
+      <origin xyz="0.000 0.000 1.286" rpy="3.141593 0.000 -0.075946"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/head/NECK_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+
+    <collision name="NECK_1_collision">
+      <origin xyz="0.000 0.000 1.286" rpy="3.141593 0.000 -0.075946"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/head/NECK_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="NECK_2">
+    <visual name="NECK_2_visual">
+      <origin xyz="-1.345 -0.002 0.024" rpy="-1.570796 -1.494850 -1.570796"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/head/NECK_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+
+    <collision name="NECK_2_collision">
+      <origin xyz="-1.345 -0.002 0.024" rpy="-1.570796 -1.494850 -1.570796"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/head/NECK_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Joints -->
+  <joint name="UPBODY_neck_1" type="continuous">
+    <origin xyz="0.000 0.000 -0.135" rpy="0.000 0.000 0.000"/>
+    <parent link="UPBODY"/>
+    <child link="NECK_1"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <joint name="UPBODY_neck_2" type="continuous">
+    <origin xyz="-0.023 0.002 -0.059" rpy="0.000 1.570796 0.000"/>
+    <parent link="NECK_1"/>
+    <child link="NECK_2"/>
+    <axis xyz="0.000 -0.075873 0.997117"/>
+  </joint>
+</robot>

@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: kist_robot
+    relative_path: urdf/kist_robot.urdf.xacro
+  srdf:
+    relative_path: config/body.srdf
+  package_settings:
+    author_name: Inhyeok
+    author_email: hwai566877@naver.com
+    generated_timestamp: 1760578772
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

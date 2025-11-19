@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <link name="RIGHTARM_1">
+    <visual name="RIGHTARM_1_visual">
+      <origin xyz="1.168 0.010 0.346" rpy="-0.406350 1.380610 -0.412998"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    
+    <collision name="RIGHTARM_1_collision">
+      <origin xyz="1.168 0.010 0.346" rpy="-0.406350 1.380610 -0.412998"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="RIGHTARM_2">
+    <visual name="RIGHTARM_2_visual">
+      <origin xyz="0.198 -1.220 0.028" rpy="-1.570796 -0.075946 3.141593"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    
+    <collision name="RIGHTARM_2_collision">
+      <origin xyz="0.198 -1.220 0.028" rpy="-1.570796 -0.075946 3.141593"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="RIGHTARM_3">
+    <visual name="RIGHTARM_3_visual">
+      <origin xyz="0.224 -0.017 1.099" rpy="0.000 0.000 3.065646"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    
+    <collision name="RIGHTARM_3_collision">
+      <origin xyz="0.224 -0.017 1.099" rpy="0.000 0.000 3.065646"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="RIGHTARM_4">
+    <visual name="RIGHTARM_4_visual">
+      <origin xyz="-0.970 -0.039 0.255" rpy="-1.570796 1.494850 1.570796"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    
+    <collision name="RIGHTARM_4_collision">
+      <origin xyz="-0.970 -0.039 0.255" rpy="-1.570796 1.494850 1.570796"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="RIGHTARM_5">
+    <visual name="RIGHTARM5_visual">
+      <origin xyz="0.233 -0.018 0.836" rpy="0.000 0.000 3.065646"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    
+    <collision name="RIGHTARM5_collision">
+      <origin xyz="0.233 -0.018 0.836" rpy="0.000 0.000 3.065646"/>
+      <geometry>
+        <mesh filename="package://kist_robot/meshes/right_arm/RIGHTARM_5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="RIGHT_HAND">
+    <visual>
+      <origin xyz="0.000 0.000 0.019" rpy="0.000 0.000 0.000"/>
+      <geometry>
+        <box size="0.03 0.10 0.10"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+    
+    <collision name="RIGHT_HAND_collision">
+      <origin xyz="0.000 0.000 0.019" rpy="0.000 0.000 0.000"/>
+      <geometry>
+        <box size="0.03 0.10 0.10"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- Joints -->
+  <joint name="UPBODY_rightarm_1" type="continuous">
+    <origin xyz="-0.137 0.010 -0.060" rpy="0.000 -1.396263 -3.141593"/>
+    <parent link="UPBODY"/>
+    <child link="RIGHTARM_1"/>
+    <axis xyz="0.001 0.074721 0.997204"/>
+  </joint>
+
+  <joint name="UPBODY_rightarm_2" type="continuous">
+    <origin xyz="0.001 0.038 -0.061" rpy="-1.570796 -1.396263 -3.141593"/>
+    <parent link="RIGHTARM_1"/>
+    <child link="RIGHTARM_2"/>
+    <axis xyz="-0.075873 -0.000 -0.997117"/>
+  </joint>
+
+  <joint name="UPBODY_rightarm_3" type="continuous">
+    <origin xyz="-0.027 -0.121 0.045" rpy="1.570796 0.000 0.000"/>
+    <parent link="RIGHTARM_2"/>
+    <child link="RIGHTARM_3"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+  </joint>
+
+  <joint name="UPBODY_rightarm_4" type="continuous">
+    <origin xyz="-0.030 0.022 0.129" rpy="0.000 1.570796 0.000"/>
+    <parent link="RIGHTARM_3"/>
+    <child link="RIGHTARM_4"/>
+    <axis xyz="-0.000 -0.075873 0.997117"/>
+  </joint>
+
+  <joint name="UPBODY_rightarm_5" type="continuous">
+    <origin xyz="-0.133 -0.022 0.022" rpy="0.000 -1.570796 0.000"/>
+    <parent link="RIGHTARM_4"/>
+    <child link="RIGHTARM_5"/>
+    <axis xyz="0.0 0.0 -1.0"/>
+  </joint>
+
+  <joint name="right_hand" type="fixed">
+    <origin xyz="0.000 0.000 0.075" rpy="0.000 0.000 0.000"/>
+    <parent link="RIGHTARM_5"/>
+    <child link="RIGHT_HAND"/>
+  </joint>
+</robot>
